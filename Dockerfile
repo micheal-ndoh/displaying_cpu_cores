@@ -1,4 +1,4 @@
-# Stage 1: Build the Rust application
+# Build the Rust application
 FROM rust:latest as builder
 
 # Set the working directory
@@ -10,8 +10,8 @@ COPY . .
 # Build the Rust program
 RUN cargo build --release
 
-# Stage 2: Create a smaller image with the built binary
-FROM debian:buster-slim
+#  Create a smaller image with the built binary
+FROM ubuntu:22.04
 
 # Set the working directory
 WORKDIR /usr/src/cpu
